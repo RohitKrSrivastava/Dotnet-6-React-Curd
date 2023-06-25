@@ -77,12 +77,10 @@ function Cafes(props) {
               <TableHead>
                 <TableRow>
                   <TableCell>Id</TableCell>
-                  <TableCell>Name</TableCell>
-                  <TableCell>Gender</TableCell>
-                  <TableCell>Email Address</TableCell>
-                  <TableCell>Phone Number</TableCell>
-                  <TableCell>Days Worked In Cafe</TableCell>
                   <TableCell>Cafe Name</TableCell>
+                  <TableCell>Discription</TableCell>
+                  <TableCell>Location</TableCell>
+                  <TableCell>Logo</TableCell>
                   <TableCell>Actions</TableCell>
                 </TableRow>
               </TableHead>
@@ -94,8 +92,6 @@ function Cafes(props) {
                     <TableCell>{employee.gender}</TableCell>
                     <TableCell>{employee.email}</TableCell>
                     <TableCell>{employee.phone}</TableCell>
-                    <TableCell>{employee.daysWorked}</TableCell>
-                    <TableCell>{employee.assignedCafe}</TableCell>
                     <TableCell>
                       <Link
                         to={`/employees/${employee.id}`}

@@ -20,9 +20,9 @@ import {
 import { GlobalContext } from "../../context/GlobalState";
 
 function CafeForm({ initialValues, action }) {
-  const [employee, setEmployee] = useState(initialValues);
+  const [cafe, setEmployee] = useState(initialValues);
   const [cafeList, setCafeList] = useState([]);
-  const { addEmployee, editEmployee } = useContext(GlobalContext);
+  const { addCafe, editCafe } = useContext(GlobalContext);
   const history = useHistory();
 
   useEffect(() => {
@@ -62,11 +62,11 @@ function CafeForm({ initialValues, action }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (action === "Edit") {
-      editEmployee(employee);
+      editCafe(cafe);
     } else {
-      addEmployee(employee);
+      addCafe(cafe);
     }
-    history.push("/employees");
+    history.push("/cafe");
   };
 
   return (
@@ -76,79 +76,44 @@ function CafeForm({ initialValues, action }) {
       </Typography>
       <form onSubmit={handleSubmit}>
         <FormControl margin="normal" required fullWidth>
-          <InputLabel htmlFor="name">Name</InputLabel>
+          <InputLabel htmlFor="name">Cafe Name</InputLabel>
           <Input
             id="name"
             name="name"
-            value={employee.name}
+            value={cafe.name}
             onChange={handleChange}
           />
         </FormControl>
         <FormControl margin="normal" required fullWidth>
-          <InputLabel htmlFor="email">Email Address</InputLabel>
+          <InputLabel htmlFor="discrption">Discription</InputLabel>
           <Input
             id="email"
-            name="email"
-            type="email"
-            value={employee.email}
+            name="discrption"
+            value={cafe.discription}
             onChange={handleChange}
           />
         </FormControl>
         <FormControl margin="normal" required fullWidth>
-          <InputLabel htmlFor="phone">Phone Number</InputLabel>
+          <InputLabel htmlFor="location">Location</InputLabel>
           <Input
             id="phone"
-            name="phone"
-            type="tel"
-            value={employee.phone}
+            name="location"
+            value={cafe.location}
             onChange={handleChange}
           />
         </FormControl>
         <FormGroup>
           <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="daysWorked">Days Worked in Cafe</InputLabel>
+            <InputLabel htmlFor="daysWorked">Logo</InputLabel>
             <Input
               id="daysWorked"
-              name="daysWorked"
-              type="number"
-              value={employee.daysWorked}
+              name="logo"
+              value={cafe.logo}
               onChange={handleChange}
             />
             <FormHelperText>
               Number of days the employee has worked in the cafe.
             </FormHelperText>
-          </FormControl>
-          <FormControl>
-            <FormLabel>Gender</FormLabel>
-            <RadioGroup
-              defaultValue={employee.gender}
-              id="gender"
-              name="gender"
-            >
-              <FormControlLabel
-                value="Female"
-                control={<Radio />}
-                label="Female"
-              />
-              <FormControlLabel value="Male" control={<Radio />} label="Male" />
-              <FormControlLabel
-                value="Other"
-                control={<Radio />}
-                label="Other"
-              />
-            </RadioGroup>
-          </FormControl>
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel id="assignedCafeLabel">Assigned Cafe</InputLabel>
-            <Select
-              name="assignedCafe"
-              id="assignedCafe"
-              value={employee.assignedCafe}
-              label="AssignedCafe"
-              onChange={handleChange}
-            >
-              {cafeList}
-            </Select>
           </FormControl>
         </FormGroup>
         <Button type="submit" variant="contained" color="primary">

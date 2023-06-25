@@ -2,16 +2,15 @@ import React from "react";
 import CafeForm from "./CafeForm";
 
 function AddCafe() {
-  const employee = {
+  const cafe = {
+    id: "",
     name: "",
-    email: "",
-    phone: "",
-    daysWorked: "",
-    assignedCafe: "",
-    gender: "",
+    discription: "",
+    location: "",
+    logo: "",
   };
 
-  return <CafeForm initialValues={employee} />;
+  return <CafeForm initialValues={cafe} />;
 }
 
 export default AddCafe;
