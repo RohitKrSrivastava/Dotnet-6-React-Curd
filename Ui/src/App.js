@@ -3,6 +3,7 @@ import {
   ThemeProvider,
   StyledEngineProvider,
   CssBaseline,
+  Box,
 } from "@mui/material";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import theme from "./theme";
@@ -21,13 +22,15 @@ function App() {
           <GlobalStyles />
           <Pace color={theme.palette.primary.light} />
           <Suspense fallback={<Fragment />}>
-            <Switch>
-              <Route>
-                <GlobalProvider>
-                  <Main />
-                </GlobalProvider>
-              </Route>
-            </Switch>
+            <GlobalProvider>
+              <Switch>
+                <Route>
+                  <Box marginTop={8}>
+                    <Main />
+                  </Box>
+                </Route>
+              </Switch>
+            </GlobalProvider>
           </Suspense>
         </ThemeProvider>
       </StyledEngineProvider>
