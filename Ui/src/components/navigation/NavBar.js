@@ -56,11 +56,11 @@ function NavBar(props) {
       name: "Employees",
       icon: <BookIcon className="text-white" />,
     },
-    // {
-    //   link: "/cafes",
-    //   name: "Cafes",
-    //   icon: <BookIcon className="text-white" />,
-    // },
+    {
+      link: "/cafes",
+      name: "Cafes",
+      icon: <BookIcon className="text-white" />,
+    },
   ];
   return (
     <div className={classes.root}>
@@ -73,7 +73,7 @@ function NavBar(props) {
               display="inline"
               color="primary"
             >
-              Su
+              Ro
             </Typography>
             <Typography
               variant="h4"
@@ -81,7 +81,7 @@ function NavBar(props) {
               display="inline"
               color="secondary"
             >
-              mit
+              hit
             </Typography>
           </div>
           <div>

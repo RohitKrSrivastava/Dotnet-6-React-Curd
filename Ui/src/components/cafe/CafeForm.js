@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 import { GlobalContext } from "../../context/GlobalState";
 
-function EmployeeForm({ initialValues, action }) {
+function CafeForm({ initialValues, action }) {
   const [employee, setEmployee] = useState(initialValues);
   const [cafeList, setCafeList] = useState([]);
   const { addEmployee, editEmployee } = useContext(GlobalContext);
@@ -159,4 +159,4 @@ function EmployeeForm({ initialValues, action }) {
   );
 }
 
-export default EmployeeForm;
+export default CafeForm;

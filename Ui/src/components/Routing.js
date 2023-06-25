@@ -5,6 +5,8 @@ import Employees from "./employee/Employees";
 import EditEmployee from "./employee/EditEmployee";
 import AddEmployee from "./employee/AddEmployee";
 import Cafes from "./cafe/Cafes";
+import AddCafe from "./cafe/AddCafe";
+import EditCafe from "./cafe/EditCafe";
 
 
 function Routing(props) {
@@ -14,6 +16,9 @@ function Routing(props) {
       <Route path="/employees/add" component={AddEmployee} exact />
       <Route path="/employees/:id" component={EditEmployee} exact />
       <Route path="/cafes" component={Cafes} exact />
+      <Route path="/cafes/add" component={AddCafe} exact />
+      <Route path="/cafes/:id" component={EditCafe} exact />
+
       <Route path="/" component={Home} />
     </Switch>
   );

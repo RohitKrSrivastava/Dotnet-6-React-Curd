@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import EmployeeForm from "./EmployeeForm";
+import CafeForm from "./CafeForm";
 import { GlobalContext } from "../../context/GlobalState";
 
 export default function EditEmployee() {
@@ -12,5 +12,5 @@ export default function EditEmployee() {
     return <div>Employee not found</div>;
   }
 
-  return <EmployeeForm initialValues={employee} action={"Edit"} />;
+  return <CafeForm initialValues={employee} action={"Edit"} />;
 }

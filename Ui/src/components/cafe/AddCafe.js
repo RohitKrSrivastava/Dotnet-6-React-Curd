@@ -1,7 +1,7 @@
 import React from "react";
-import EmployeeForm from "./EmployeeForm";
+import CafeForm from "./CafeForm";
 
-function AddEmployee() {
+function AddCafe() {
   const employee = {
     name: "",
     email: "",
@@ -11,7 +11,7 @@ function AddEmployee() {
     gender: "",
   };
 
-  return <EmployeeForm initialValues={employee} />;
+  return <CafeForm initialValues={employee} />;
 }
 
-export default AddEmployee;
+export default AddCafe;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Box, Typography, Button } from "@mui/material";
 import { AddCircle as AddCircleIcon } from "@mui/icons-material";
 
-function EmployeeListing() {
+function CafeListing() {
   return (
     <Box display="flex" alignItems="center">
       <Box flex={1} textAlign="left" px={4} py={2} m={2}>
@@ -27,4 +27,4 @@ function EmployeeListing() {
   );
 }
 
-export default EmployeeListing;
+export default CafeListing;
