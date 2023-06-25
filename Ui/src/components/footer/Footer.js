@@ -75,11 +75,11 @@ const styles = (theme) => ({
 const infos = [
   {
     icon: <PhoneIcon />,
-    description: "+1 555 123456",
+    description: "+6581795383",
   },
   {
     icon: <MailIcon />,
-    description: "support@company.com",
+    description: "rohit.rocer@gmail.com",
   },
 ];
 
@@ -98,7 +98,7 @@ const socialIcons = [
       </svg>
     ),
     label: "Github",
-    href: "https://github.com/",
+    href: "https://github.com/RohitKrSrivastava",
   },
   {
     icon: (
@@ -114,7 +114,7 @@ const socialIcons = [
       </svg>
     ),
     label: "Facebook",
-    href: "https://facebook.com",
+    href: "https://www.facebook.com/coolrohit171091/",
   },
   {
     icon: (
@@ -130,7 +130,7 @@ const socialIcons = [
       </svg>
     ),
     label: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/in/rohit-kumar-srivastava-59921352",
   },
   {
     icon: (
@@ -218,11 +218,10 @@ function Footer(props) {
           </Hidden>
           <Grid item xs={12} md={6} lg={4}>
             <Typography variant="h6" paragraph className="text-white">
-              About the Company
+              About Me
             </Typography>
             <Typography style={{ color: "#8f9296" }} paragraph>
-              Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
-              euismod convallis velit, eu auctor lacus vehicula sit amet.
+              I am Rohit Kumar Srivastava, Holding 7.5 years of experiance in dot net core full taack developmet.
             </Typography>
             <Box display="flex">
               {socialIcons.map((socialIcon, index) => (
