@@ -75,11 +75,11 @@ const styles = (theme) => ({
 const infos = [
   {
     icon: <PhoneIcon />,
-    description: "+65 89256736",
+    description: "+65 81795383",
   },
   {
     icon: <MailIcon />,
-    description: "sksingq@gmail.com",
+    description: "rohit.rocer@gmail.com",
   },
 ];
 
@@ -98,7 +98,7 @@ const socialIcons = [
       </svg>
     ),
     label: "Github",
-    href: "https://github.com/mitsumitsingh",
+    href: "https://www.linkedin.com/in/rohit-kumar-srivastava-59921352/",
   },
   // {
   //   icon: (
@@ -130,7 +130,7 @@ const socialIcons = [
       </svg>
     ),
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/mitsumitsingh/",
+    href: "https://www.linkedin.com/in/rohit-kumar-srivastava-59921352/",
   },
   {
     icon: (
@@ -146,7 +146,7 @@ const socialIcons = [
       </svg>
     ),
     label: "Twitter",
-    href: "https://twitter.com/sksingq",
+    href: "https://twitter.com/RohitKu80126246",
   },
 ];
 
@@ -221,7 +221,7 @@ function Footer(props) {
               About Me
             </Typography>
             <Typography style={{ color: "#8f9296" }} paragraph>
-              Full stack developer with 4.5+ years of professional experience in
+              Full stack developer with 7.5+ years of professional experience in
               e-commerce, finance and banking domain with agile development
               environment.
             </Typography>
