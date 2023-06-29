@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c403c708-d25e-4892-b66f-280d7bab9b14": {
+      "ProjectGuid": "c403c708-d25e-4892-b66f-280d7bab9b14",
+      "DisplayName": "CafeAPI",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

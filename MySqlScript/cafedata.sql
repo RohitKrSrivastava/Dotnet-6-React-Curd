@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 25, 2023 at 03:24 PM
+-- Generation Time: Jun 29, 2023 at 09:17 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.26
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `demo_cafe_db`
+-- Database: `demo_cafe_application`
 --
 
 -- --------------------------------------------------------
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `cafedata` (
 --
 
 INSERT INTO `cafedata` (`Id`, `Name`, `Discription`, `Location`, `Logo`) VALUES
-('CF1000001', 'ccd', 'this is cafe coffee day', 'Lucknow', ''),
+('CF1000001', 'Null', 'Blank', 'Null', ''),
 ('CF1000002', 'barista', 'this is barista', 'delhi', ''),
 ('CF1000003', 'c2', 'description for c2', 'Lucknow', ''),
 ('CF1000004', 'c1', 'description for c1', 'Lucknow', ''),
