@@ -20,8 +20,8 @@ export const GlobalProvider = ({ children }) => {
     fetchEmployees(dispatch);
   }, []);
 
-  const handleRemoveEmployee = (id) => {
-    removeEmployee(dispatch, id);
+  const handleRemoveEmployee = (employee) => {
+    removeEmployee(dispatch, employee);
   };
 
   const handleAddEmployee = (employee) => {

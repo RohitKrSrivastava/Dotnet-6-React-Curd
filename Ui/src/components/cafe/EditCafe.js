@@ -9,7 +9,7 @@ export default function EditEmployee() {
   const employee = employees.find((emp) => emp.id === id);
 
   if (!employee) {
-    return <div>Employee not found</div>;
+    return <div>Cafe not found</div>;
   }
 
   return <CafeForm initialValues={employee} action={"Edit"} />;

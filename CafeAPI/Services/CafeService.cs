@@ -31,9 +31,9 @@ namespace CafeAPI.Services
             return _cafeRepository.DeleteCafe(cafeData);
         }
 
-        public List<CafeData> GetAllCafe()
+        public List<CafeData> GetAllCafe(int withEmploeeData)
         {
-            return _cafeRepository.GetAllCafe();
+            return _cafeRepository.GetAllCafe(withEmploeeData);
         }
 
         public CafeData GetCafeByName(string name)

@@ -1,4 +1,5 @@
 import axios from "axios";
+const apiUrl = process.env.REACT_APP_END_POINT + "/Employee/";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -65,11 +66,12 @@ export const reducer = (state, action) => {
 
 export const fetchEmployees = async (dispatch) => {
   try {
+    const get_URL = apiUrl+'allEmployeeList';
     const response = await axios.get(
-      "https://6496d62183d4c69925a32706.mockapi.io/Example/employees"
+      get_URL
     );
     const employees = response.data;
-
+      console.log(employees);
     dispatch({
       type: "FETCH_EMPLOYEES_SUCCESS",
       payload: employees,
@@ -82,17 +84,19 @@ export const fetchEmployees = async (dispatch) => {
   }
 };
 
-export const removeEmployee = async (dispatch, id) => {
+export const removeEmployee = async (dispatch, employee) => {
   try {
-    console.log("Record Deleted" + id);
+    const remove_URL = apiUrl+'removeEmployee';
 
-    await axios.delete(
-      `https://6496d62183d4c69925a32706.mockapi.io/Example/employees/${id}`
+    const response = await axios.delete(
+      remove_URL,
+      employee
     );
+    const result = response.data;
 
     dispatch({
       type: "REMOVE_EMPLOYEE_SUCCESS",
-      payload: id,
+      payload: result,
     });
   } catch (error) {
     dispatch({
@@ -104,8 +108,9 @@ export const removeEmployee = async (dispatch, id) => {
 
 export const addEmployee = async (dispatch, employee) => {
   try {
+    const get_URL = apiUrl+'addEmployeeDetails';
     const response = await axios.post(
-      "https://6496d62183d4c69925a32706.mockapi.io/Example/employees",
+      get_URL,
       employee
     );
     const newEmployee = response.data;
@@ -123,10 +128,10 @@ export const addEmployee = async (dispatch, employee) => {
 };
 
 export const editEmployee = async (dispatch, employee) => {
-  console.log(employee);
+  const edit_URL = apiUrl+'updateEmployeeDetails';
   try {
     await axios.put(
-      `https://6496d62183d4c69925a32706.mockapi.io/Example/employees/${employee.id}`,
+      edit_URL,
       employee
     );
 

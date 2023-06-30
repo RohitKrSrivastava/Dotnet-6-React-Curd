@@ -19,6 +19,8 @@ import {
 } from "@mui/material";
 import { GlobalContext } from "../../context/GlobalState";
 
+const apiUrl = process.env.REACT_APP_END_POINT;
+
 function EmployeeForm({ initialValues, action }) {
   const [employee, setEmployee] = useState(initialValues);
   const [cafeList, setCafeList] = useState([]);
@@ -33,11 +35,11 @@ function EmployeeForm({ initialValues, action }) {
   const getAssignedCafe = async () => {
     try {
       const response = await axios.get(
-        "https://6496d62183d4c69925a32706.mockapi.io/Example/getDropdown"
+        `${apiUrl}/Cafe/allCafeList`
       );
-      const cafes = response.data.map((cafe, index) => (
-        <MenuItem key={index} value={cafe}>
-          {cafe}
+      const cafes = response.data.map((cafe) => (
+        <MenuItem key={cafe.id} value={cafe.id}>
+          {cafe.name}
         </MenuItem>
       ));
       setCafeList(cafes);
@@ -45,11 +47,6 @@ function EmployeeForm({ initialValues, action }) {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    setEmployee(initialValues);
-    getAssignedCafe();
-  }, [initialValues]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -85,27 +82,27 @@ function EmployeeForm({ initialValues, action }) {
           />
         </FormControl>
         <FormControl margin="normal" required fullWidth>
-          <InputLabel htmlFor="email">Email Address</InputLabel>
+          <InputLabel htmlFor="emailAddress">Email Address</InputLabel>
           <Input
-            id="email"
-            name="email"
+            id="emailAddress"
+            name="emailAddress"
             type="email"
-            value={employee.email}
+            value={employee.emailAddress}
             onChange={handleChange}
           />
         </FormControl>
         <FormControl margin="normal" required fullWidth>
-          <InputLabel htmlFor="phone">Phone Number</InputLabel>
+          <InputLabel htmlFor="phoneNumber">Phone Number</InputLabel>
           <Input
-            id="phone"
-            name="phone"
+            id="phoneNumber"
+            name="phoneNumber"
             type="tel"
-            value={employee.phone}
+            value={employee.phoneNumber}
             onChange={handleChange}
           />
         </FormControl>
         <FormGroup>
-          <FormControl margin="normal" required fullWidth>
+          {/* <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="daysWorked">Days Worked in Cafe</InputLabel>
             <Input
               id="daysWorked"
@@ -117,7 +114,7 @@ function EmployeeForm({ initialValues, action }) {
             <FormHelperText>
               Number of days the employee has worked in the cafe.
             </FormHelperText>
-          </FormControl>
+          </FormControl> */}
           <FormControl>
             <FormLabel>Gender</FormLabel>
             <RadioGroup
@@ -126,24 +123,27 @@ function EmployeeForm({ initialValues, action }) {
               name="gender"
             >
               <FormControlLabel
-                value="Female"
+                value="1"
                 control={<Radio />}
                 label="Female"
               />
-              <FormControlLabel value="Male" control={<Radio />} label="Male" />
+              <FormControlLabel 
+                value="2" 
+                control={<Radio />} 
+                label="Male" />
               <FormControlLabel
-                value="Other"
+                value="3"
                 control={<Radio />}
                 label="Other"
               />
             </RadioGroup>
           </FormControl>
           <FormControl margin="normal" required fullWidth>
-            <InputLabel id="assignedCafeLabel">Assigned Cafe</InputLabel>
+            <InputLabel id="cafeId">Assigned Cafe</InputLabel>
             <Select
-              name="assignedCafe"
-              id="assignedCafe"
-              value={employee.assignedCafe}
+              name="cafeId"
+              id="cafeId"
+              value={employee.cafeId}
               label="AssignedCafe"
               onChange={handleChange}
             >

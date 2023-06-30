@@ -2,6 +2,8 @@
 using CafeAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace CafeAPI.Controllers
 {
@@ -16,12 +18,13 @@ namespace CafeAPI.Controllers
         }
 
         [HttpGet]
-        [Route("allCafeList")]
-        public IActionResult GetAllCafe()
+        [Route("allCafeList/{withEmploeeData?}")]
+        public IActionResult GetAllCafe(int withEmploeeData = -1)
         {
             try
             {
-                return Ok(_cafeService.GetAllCafe());
+                var result = _cafeService.GetAllCafe(withEmploeeData);
+                return Ok(result);
             }
             catch (Exception ex)
             {

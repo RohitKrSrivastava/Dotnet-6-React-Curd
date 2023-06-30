@@ -12,7 +12,7 @@ function CafeListing() {
         </Typography>
       </Box>
       <Box flex={1} textAlign="right" px={4} py={2} m={2}>
-        <Link to="/cafe/add" style={{ textDecoration: "none" }}>
+        <Link to="/cafes/add" style={{ textDecoration: "none" }}>
           <Button
             variant="contained"
             color="success"

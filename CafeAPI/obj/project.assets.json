@@ -10810,11 +10810,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workspace\\CafeAPI\\CafeAPI\\CafeAPI.csproj",
+      "projectUniqueName": "D:\\workspace\\CafeProject\\CafeAPI\\CafeAPI.csproj",
       "projectName": "CafeAPI",
-      "projectPath": "D:\\workspace\\CafeAPI\\CafeAPI\\CafeAPI.csproj",
+      "projectPath": "D:\\workspace\\CafeProject\\CafeAPI\\CafeAPI.csproj",
       "packagesPath": "C:\\Users\\rohit\\.nuget\\packages\\",
-      "outputPath": "D:\\workspace\\CafeAPI\\CafeAPI\\obj\\",
+      "outputPath": "D:\\workspace\\CafeProject\\CafeAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rohit\\AppData\\Roaming\\NuGet\\NuGet.Config",

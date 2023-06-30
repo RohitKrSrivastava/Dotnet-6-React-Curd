@@ -139,7 +139,7 @@ function Cafes(props) {
         <DialogTitle>Confirm Delete</DialogTitle>
         <DialogContent>
           <Typography>
-            Are you sure you want to delete this employee?
+            Are you sure you want to delete this cafe?
           </Typography>
         </DialogContent>
         <DialogActions>

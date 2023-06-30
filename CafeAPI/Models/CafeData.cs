@@ -9,7 +9,7 @@ namespace CafeAPI.Models
         public string Name { get; set; }
         public string Discription { get; set; }
         public string Location { get; set; }
-        public byte[] Logo { get; set; }
+        public string Logo { get; set; }
         
         [ForeignKey("CafeId")]
         public ICollection<EmployeesData> Employees { get; set; }

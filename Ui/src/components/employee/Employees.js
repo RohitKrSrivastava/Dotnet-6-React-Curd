@@ -61,6 +61,12 @@ function Employees(props) {
     setOpenConfirmationDialog(false);
   };
 
+  const genderMap = {
+    1: 'Female',
+    2: 'Male',
+    3: 'Others',
+  };
+
   return (
     <Fragment>
       <Box justifyContent="center" margin={2}>
@@ -81,7 +87,7 @@ function Employees(props) {
                   <TableCell>Gender</TableCell>
                   <TableCell>Email Address</TableCell>
                   <TableCell>Phone Number</TableCell>
-                  <TableCell>Days Worked In Cafe</TableCell>
+                  {/* <TableCell>Days Worked In Cafe</TableCell> */}
                   <TableCell>Cafe Name</TableCell>
                   <TableCell>Actions</TableCell>
                 </TableRow>
@@ -91,11 +97,11 @@ function Employees(props) {
                   <TableRow key={employee.id}>
                     <TableCell>{employee.id}</TableCell>
                     <TableCell>{employee.name}</TableCell>
-                    <TableCell>{employee.gender}</TableCell>
-                    <TableCell>{employee.email}</TableCell>
-                    <TableCell>{employee.phone}</TableCell>
-                    <TableCell>{employee.daysWorked}</TableCell>
-                    <TableCell>{employee.assignedCafe}</TableCell>
+                    <TableCell>{genderMap[employee.gender]}</TableCell>
+                    <TableCell>{employee.emailAddress}</TableCell>
+                    <TableCell>{employee.phoneNumber}</TableCell>
+                    {/* <TableCell>{employee.daysWorked}</TableCell> */}
+                    <TableCell>{employee.cafeName}</TableCell>
                     <TableCell>
                       <Link
                         to={`/employees/${employee.id}`}

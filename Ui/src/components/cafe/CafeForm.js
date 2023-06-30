@@ -10,11 +10,6 @@ import {
   InputLabel,
   Input,
   Typography,
-  FormLabel,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
-  Select,
   MenuItem,
 } from "@mui/material";
 import { GlobalContext } from "../../context/GlobalState";
@@ -66,7 +61,7 @@ function CafeForm({ initialValues, action }) {
     } else {
       addCafe(cafe);
     }
-    history.push("/cafe");
+    history.push("/cafes");
   };
 
   return (

@@ -61,7 +61,7 @@ namespace CafeAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("deleteCafe")]
+        [Route("removeEmployee")]
         public IActionResult DeleteEmployee(EmployeesData employeesData)
         {
             try

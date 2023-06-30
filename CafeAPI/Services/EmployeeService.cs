@@ -6,10 +6,12 @@ namespace CafeAPI.Services
     public class EmployeeService : IEmployeeService
     {
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly ICafeRepository _cafeRepository;
 
-        public EmployeeService(IEmployeeRepository employeeRepository)
+        public EmployeeService(IEmployeeRepository employeeRepository, ICafeRepository cafeRepository)
         {
             _employeeRepository = employeeRepository;
+            _cafeRepository = cafeRepository;
         }
         public string AddEmployee(EmployeesData addEmployee)
         {
@@ -32,7 +34,8 @@ namespace CafeAPI.Services
 
         public List<EmployeesData> GetAllEmployee()
         {
-            return _employeeRepository.GetAllEmployee();
+            var allEmployee = _employeeRepository.GetAllEmployee();
+            return allEmployee;
         }
 
         public bool UpdateEmployee(EmployeesData employeeData)

@@ -1,5 +1,10 @@
 import axios from "axios";
 
+
+const api_url = process.env.api_endpoint+'api/EmployeeController/';
+
+
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_EMPLOYEES_SUCCESS":
@@ -64,6 +69,7 @@ export const reducer = (state, action) => {
 };
 
 export const fetchEmployees = async (dispatch) => {
+  alert(api_url);
   try {
     const response = await axios.get(
       "https://6496d62183d4c69925a32706.mockapi.io/Example/employees"

@@ -15,8 +15,9 @@ function Routing(props) {
       <Route exact path="/employees" component={Employees} />
       <Route path="/employees/add" component={AddEmployee} exact />
       <Route path="/employees/:id" component={EditEmployee} exact />
-      <Route path="/cafes" component={Cafes} exact />
+      
       <Route path="/cafes/add" component={AddCafe} exact />
+      <Route path="/cafes" component={Cafes} exact />
       <Route path="/cafes/:id" component={EditCafe} exact />
 
       <Route path="/" component={Home} />

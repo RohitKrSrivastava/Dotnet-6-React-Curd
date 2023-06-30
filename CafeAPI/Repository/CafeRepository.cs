@@ -53,11 +53,20 @@ namespace CafeAPI.Repository
             return result;
         }
 
-        public List<CafeData> GetAllCafe()
+        public List<CafeData> GetAllCafe(int withEmploeeData)
         {
             try
             {
-               var allCafe = _dbContext.CafeData.Include(x=> x.Employees).ToList();
+                var allCafe = new List<CafeData>();
+
+                if (withEmploeeData > 0)
+                {
+                    allCafe = _dbContext.CafeData.Include(x => x.Employees).ToList();
+                }
+                else { 
+                    allCafe = _dbContext.CafeData.ToList();
+                }
+                
                return allCafe;
             }
             catch (Exception)

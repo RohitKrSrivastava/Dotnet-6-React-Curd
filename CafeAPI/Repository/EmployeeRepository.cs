@@ -1,5 +1,6 @@
 ﻿using CafeAPI.DbContexts;
 using CafeAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CafeAPI.Repository
 {
