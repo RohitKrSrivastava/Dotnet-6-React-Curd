@@ -27,12 +27,12 @@ namespace CafeAPI.Repository
             return addCafe.Id;
         }
 
-        public bool DeleteCafe(CafeData cafeData)
+        public bool DeleteCafe(string id)
         {
             var result = false;
             try
             {
-                var findEntity = _dbContext.CafeData.Find(cafeData.Id);
+                var findEntity = _dbContext.CafeData.Find(id);
 
                 if (findEntity != null)
                 {

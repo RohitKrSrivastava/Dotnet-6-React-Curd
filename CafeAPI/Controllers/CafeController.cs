@@ -77,10 +77,10 @@ namespace CafeAPI.Controllers
 
         [HttpDelete]
         [Route("deleteCafe/{id}")]
-        public IActionResult DeleteCafe(CafeData cafeData) {
+        public IActionResult DeleteCafe(string id) {
             try
             {
-                return Ok(_cafeService.DeleteCafe(cafeData));
+                return Ok(_cafeService.DeleteCafe(id));
             }
             catch (Exception ex)
             {

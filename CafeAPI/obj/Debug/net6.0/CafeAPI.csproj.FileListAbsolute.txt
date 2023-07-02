@@ -224,6 +224,7 @@ D:\workspace\CafeAPI\CafeAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Dra
 D:\workspace\CafeAPI\CafeAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\workspace\CafeAPI\CafeAPI\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 D:\workspace\CafeAPI\CafeAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\workspace\CafeAPI\CafeAPI\obj\Debug\net6.0\CafeAPI.csproj.AssemblyReference.cache
 D:\workspace\CafeAPI\CafeAPI\obj\Debug\net6.0\CafeAPI.GeneratedMSBuildEditorConfig.editorconfig
 D:\workspace\CafeAPI\CafeAPI\obj\Debug\net6.0\CafeAPI.AssemblyInfoInputs.cache
 D:\workspace\CafeAPI\CafeAPI\obj\Debug\net6.0\CafeAPI.AssemblyInfo.cs
@@ -238,4 +239,3 @@ D:\workspace\CafeAPI\CafeAPI\obj\Debug\net6.0\CafeAPI.dll
 D:\workspace\CafeAPI\CafeAPI\obj\Debug\net6.0\ref\CafeAPI.dll
 D:\workspace\CafeAPI\CafeAPI\obj\Debug\net6.0\CafeAPI.pdb
 D:\workspace\CafeAPI\CafeAPI\obj\Debug\net6.0\CafeAPI.genruntimeconfig.cache
-D:\workspace\CafeAPI\CafeAPI\obj\Debug\net6.0\CafeAPI.csproj.AssemblyReference.cache

@@ -26,9 +26,9 @@ namespace CafeAPI.Services
             return _cafeRepository.AddCafe(cafeData);
         }
 
-        public bool DeleteCafe(CafeData cafeData)
+        public bool DeleteCafe(string id)
         {
-            return _cafeRepository.DeleteCafe(cafeData);
+            return _cafeRepository.DeleteCafe(id);
         }
 
         public List<CafeData> GetAllCafe()

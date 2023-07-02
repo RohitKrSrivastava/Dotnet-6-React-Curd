@@ -8,6 +8,6 @@ namespace CafeAPI.Services
         public string AddCafe(CafeData addCafe);
         public CafeData GetCafeByName(string name);
         public bool UpdateCafe(CafeData cafeData);
-        public bool DeleteCafe(CafeData cafeData);
+        public bool DeleteCafe(string id);
     }
 }
