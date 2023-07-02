@@ -7,6 +7,7 @@ function AddEmployee() {
     emailAddress: "",
     phoneNumber: "",
     cafeId: "",
+    cafeName: "",
     gender: "",
   };
 

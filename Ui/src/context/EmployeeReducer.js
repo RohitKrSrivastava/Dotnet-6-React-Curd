@@ -66,12 +66,12 @@ export const reducer = (state, action) => {
 
 export const fetchEmployees = async (dispatch) => {
   try {
-    const get_URL = apiUrl+'allEmployeeList';
+    const get_URL = apiUrl + 'allEmployeeList';
     const response = await axios.get(
       get_URL
     );
     const employees = response.data;
-      console.log(employees);
+    console.log(employees);
     dispatch({
       type: "FETCH_EMPLOYEES_SUCCESS",
       payload: employees,
@@ -84,19 +84,18 @@ export const fetchEmployees = async (dispatch) => {
   }
 };
 
-export const removeEmployee = async (dispatch, employee) => {
+export const removeEmployee = async (dispatch, empId) => {
   try {
-    const remove_URL = apiUrl+'removeEmployee';
+    const remove_URL = apiUrl + `removeEmployee/${empId}`;
 
     const response = await axios.delete(
-      remove_URL,
-      employee
+      remove_URL
     );
     const result = response.data;
 
     dispatch({
       type: "REMOVE_EMPLOYEE_SUCCESS",
-      payload: result,
+      payload: result ? empId : null,
     });
   } catch (error) {
     dispatch({
@@ -107,8 +106,9 @@ export const removeEmployee = async (dispatch, employee) => {
 };
 
 export const addEmployee = async (dispatch, employee) => {
+  employee.cafeName = "";
   try {
-    const get_URL = apiUrl+'addEmployeeDetails';
+    const get_URL = apiUrl + 'addEmployeeDetails';
     const response = await axios.post(
       get_URL,
       employee
@@ -128,7 +128,8 @@ export const addEmployee = async (dispatch, employee) => {
 };
 
 export const editEmployee = async (dispatch, employee) => {
-  const edit_URL = apiUrl+'updateEmployeeDetails';
+  employee.cafeName = "";
+  const edit_URL = apiUrl + 'updateEmployeeDetails';
   try {
     await axios.put(
       edit_URL,

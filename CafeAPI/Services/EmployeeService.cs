@@ -27,9 +27,9 @@ namespace CafeAPI.Services
             return _employeeRepository.AddEmployee(newEmployee);
         }
 
-        public bool DeleteEmployee(EmployeesData employeeData)
+        public bool DeleteEmployee(string id)
         {
-            return _employeeRepository.DeleteEmployee(employeeData);
+            return _employeeRepository.DeleteEmployee(id);
         }
 
         public List<EmployeesData> GetAllEmployee()

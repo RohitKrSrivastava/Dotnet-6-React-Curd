@@ -110,7 +110,7 @@ function Employees(props) {
                         <Button
                           color="primary"
                           size="small"
-                          onClick={() => editEmployee(employee)}
+                          //onClick={() => editEmployee(employee)}
                           sx={{ borderRadius: "50%", marginRight: "3px" }}
                         >
                           <EditIcon />

@@ -18,12 +18,12 @@ namespace CafeAPI.Controllers
         }
 
         [HttpGet]
-        [Route("allCafeList/{withEmploeeData?}")]
-        public IActionResult GetAllCafe(int withEmploeeData = -1)
+        [Route("allCafeList")]
+        public IActionResult GetAllCafe()
         {
             try
             {
-                var result = _cafeService.GetAllCafe(withEmploeeData);
+                var result = _cafeService.GetAllCafe();
                 return Ok(result);
             }
             catch (Exception ex)

@@ -119,20 +119,21 @@ function EmployeeForm({ initialValues, action }) {
             <FormLabel>Gender</FormLabel>
             <RadioGroup
               defaultValue={employee.gender}
+              onChange={handleChange}
               id="gender"
               name="gender"
             >
               <FormControlLabel
-                value="1"
+                value={1}
                 control={<Radio />}
                 label="Female"
               />
               <FormControlLabel 
-                value="2" 
+                value={2} 
                 control={<Radio />} 
                 label="Male" />
               <FormControlLabel
-                value="3"
+                value={3}
                 control={<Radio />}
                 label="Other"
               />

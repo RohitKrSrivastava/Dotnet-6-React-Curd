@@ -27,12 +27,12 @@ namespace CafeAPI.Repository
             
         }
 
-        public bool DeleteEmployee(EmployeesData employeeData)
+        public bool DeleteEmployee(string id)
         {
             var result = false;
             try
             {
-                var findEmployee = _dbContext.EmployeesData.Find(employeeData.Id);
+                var findEmployee = _dbContext.EmployeesData.Find(id);
 
             if (findEmployee != null) {
                 _dbContext.Remove(findEmployee);
@@ -74,6 +74,7 @@ namespace CafeAPI.Repository
                     employeesDetail.Gender = employeeData.Gender;
                     employeesDetail.EmailAddress = employeeData.EmailAddress;
                     employeesDetail.PhoneNumber = employeeData.PhoneNumber;
+                    employeesDetail.CafeId = employeeData.CafeId;
 
                     _dbContext.SaveChanges();
                     result = true;

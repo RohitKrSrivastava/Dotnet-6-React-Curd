@@ -14,6 +14,5 @@ namespace CafeAPI.Models
         [NotMapped]
         public string CafeName { get; set; }
         public string CafeId { get; set; }
-        //public CafeData Cafe { get; set; }
     }
 }

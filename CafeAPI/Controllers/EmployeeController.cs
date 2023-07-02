@@ -61,12 +61,12 @@ namespace CafeAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("removeEmployee")]
-        public IActionResult DeleteEmployee(EmployeesData employeesData)
+        [Route("removeEmployee/{id}")]
+        public IActionResult DeleteEmployee(string id)
         {
             try
             {
-                return Ok(_employeeService.DeleteEmployee(employeesData));
+                return Ok(_employeeService.DeleteEmployee(id));
             }
             catch (Exception ex)
             {

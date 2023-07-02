@@ -7,6 +7,6 @@ namespace CafeAPI.Repository
         public List<EmployeesData> GetAllEmployee();
         public string AddEmployee(EmployeesData addEmployee);
         public bool UpdateEmployee(EmployeesData employeeData);
-        public bool DeleteEmployee(EmployeesData employeeData);
+        public bool DeleteEmployee(string id);
     }
 }
