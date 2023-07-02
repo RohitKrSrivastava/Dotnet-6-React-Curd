@@ -3,6 +3,7 @@ import EmployeeForm from "./EmployeeForm";
 
 function AddEmployee() {
   const employee = {
+    id : "",
     name: "",
     emailAddress: "",
     phoneNumber: "",

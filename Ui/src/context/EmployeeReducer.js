@@ -71,7 +71,7 @@ export const fetchEmployees = async (dispatch) => {
       get_URL
     );
     const employees = response.data;
-    console.log(employees);
+    
     dispatch({
       type: "FETCH_EMPLOYEES_SUCCESS",
       payload: employees,
@@ -113,11 +113,12 @@ export const addEmployee = async (dispatch, employee) => {
       get_URL,
       employee
     );
-    const newEmployee = response.data;
+
+    employee.id = response.data;
 
     dispatch({
       type: "ADD_EMPLOYEE_SUCCESS",
-      payload: newEmployee,
+      payload: response.data ? employee: null
     });
   } catch (error) {
     dispatch({

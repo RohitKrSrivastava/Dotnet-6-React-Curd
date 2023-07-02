@@ -41,14 +41,16 @@ const styles = (theme) => ({
   },
 });
 
+const cafes = [];
+
 function Cafes(props) {
-  const { employees, removeEmployee, editEmployee } = useContext(GlobalContext);
+  const { cafe, removeEmployee, editEmployee } = useContext(GlobalContext);
   const { classes } = props;
   const [deleteEmployeeId, setDeleteEmployeeId] = useState(null);
   const [openConfirmationDialog, setOpenConfirmationDialog] = useState(false);
 
-  const handleDelete = (employeeId) => {
-    setDeleteEmployeeId(employeeId);
+  const handleDelete = (cafeId) => {
+    //setDeleteCafeId(cafeId);
     setOpenConfirmationDialog(true);
   };
 
@@ -57,7 +59,7 @@ function Cafes(props) {
   };
 
   const handleConfirmDelete = () => {
-    removeEmployee(deleteEmployeeId);
+    //removeCafe(deleteCafeId);
     setOpenConfirmationDialog(false);
   };
 
@@ -65,7 +67,7 @@ function Cafes(props) {
     <Fragment>
       <Box justifyContent="center" margin={2}>
         <CafeListing />
-        {employees.length > 0 ? (
+        {cafes.length > 0 ? (
           <TableContainer
             component={Card}
             sx={{
@@ -85,22 +87,21 @@ function Cafes(props) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {employees.map((employee) => (
-                  <TableRow key={employee.id}>
-                    <TableCell>{employee.id}</TableCell>
-                    <TableCell>{employee.name}</TableCell>
-                    <TableCell>{employee.gender}</TableCell>
-                    <TableCell>{employee.email}</TableCell>
-                    <TableCell>{employee.phone}</TableCell>
+                {cafes.map((cafe) => (
+                  <TableRow key={cafe.id}>
+                    <TableCell>{cafe.id}</TableCell>
+                    <TableCell>{cafe.name}</TableCell>
+                    <TableCell>{cafe.discription}</TableCell>
+                    <TableCell>{cafe.location}</TableCell>
+                    <TableCell>{cafe.logo}</TableCell>
                     <TableCell>
                       <Link
-                        to={`/employees/${employee.id}`}
+                        to={`/Cafe/${cafe.id}`}
                         className={classes.noDecoration}
                       >
                         <Button
                           color="primary"
                           size="small"
-                          onClick={() => editEmployee(employee)}
                           sx={{ borderRadius: "50%", marginRight: "3px" }}
                         >
                           <EditIcon />
@@ -109,7 +110,7 @@ function Cafes(props) {
                       <IconButton
                         color="primary"
                         size="small"
-                        onClick={() => handleDelete(employee.id)}
+                        onClick={() => handleDelete(cafe.id)}
                         sx={{ borderRadius: "50%" }}
                       >
                         <DeleteIcon />

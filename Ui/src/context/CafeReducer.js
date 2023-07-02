@@ -1,53 +1,51 @@
+import { CastForEducationTwoTone } from "@mui/icons-material";
 import axios from "axios";
 
+const api_url = process.env.REACT_APP_END_POINT + "/Cafe/";
 
-const api_url = process.env.api_endpoint+'api/EmployeeController/';
-
-
-
-export const reducer = (state, action) => {
+export const cafeReducer = (state, action) => {
   switch (action.type) {
-    case "FETCH_EMPLOYEES_SUCCESS":
+    case "FETCH_CAFES_SUCCESS":
       return {
         ...state,
-        employees: action.payload,
+        cafes: action.payload,
         error: null,
       };
-    case "FETCH_EMPLOYEES_FAILURE":
+    case "FETCH_CAFES_FAILURE":
       return {
         ...state,
-        employees: [],
+        cafes: [],
         error: action.payload,
       };
-    case "REMOVE_EMPLOYEE_SUCCESS":
+    case "REMOVE_CAFE_SUCCESS":
       return {
         ...state,
-        employees: state.employees.filter(
-          (employee) => employee.id !== action.payload
+        cafes: state.cafes.filter(
+          (cafes) => cafe.id !== action.payload
         ),
         error: null,
       };
-    case "REMOVE_EMPLOYEE_FAILURE":
+    case "REMOVE_CAFE_FAILURE":
       return {
         ...state,
         error: action.payload,
       };
-    case "ADD_EMPLOYEE_SUCCESS":
+    case "ADD_CAFE_SUCCESS":
       return {
         ...state,
-        employees: [...state.employees, action.payload],
+        cafes: [...state.cafes, action.payload],
         error: null,
       };
-    case "ADD_EMPLOYEE_FAILURE":
+    case "ADD_CAFE_FAILURE":
       return {
         ...state,
         error: action.payload,
       };
-    case "EDIT_EMPLOYEE_SUCCESS":
-      const updatedEmployee = action.payload;
+    case "EDIT_CAFE_SUCCESS":
+      const updatedCafe = action.payload;
 
-      const updatedEmployees = state.employees.map((employee) => {
-        if (employee.id === updatedEmployee.id) {
+      const updatedCafes = state.cafes.map((cafe) => {
+        if (cafe.id === updatedCafe.id) {
           return updatedEmployee;
         }
         return employee;
@@ -55,10 +53,10 @@ export const reducer = (state, action) => {
 
       return {
         ...state,
-        employees: updatedEmployees,
+        cafes: updatedCafes,
         error: null,
       };
-    case "EDIT_EMPLOYEE_FAILURE":
+    case "EDIT_CAFE_FAILURE":
       return {
         ...state,
         error: action.payload,
@@ -68,81 +66,85 @@ export const reducer = (state, action) => {
   }
 };
 
-export const fetchEmployees = async (dispatch) => {
-  alert(api_url);
+export const fetchCafes = async (dispatch) => {
+  const get_URL = api_url + 'allCafeList';
+
   try {
     const response = await axios.get(
-      "https://6496d62183d4c69925a32706.mockapi.io/Example/employees"
+      get_URL
     );
-    const employees = response.data;
+    const cafesData = response.data;
 
     dispatch({
-      type: "FETCH_EMPLOYEES_SUCCESS",
-      payload: employees,
+      type: "FETCH_CAFES_SUCCESS",
+      payload: cafesData,
     });
   } catch (error) {
     dispatch({
-      type: "FETCH_EMPLOYEES_FAILURE",
+      type: "FETCH_CAFES_FAILURE",
       payload: error.message,
     });
   }
 };
 
-export const removeEmployee = async (dispatch, id) => {
+export const removeCafes = async (dispatch, id) => {
+  const delete_URL = api_url + `deleteCafe/${id}`;
+
   try {
     console.log("Record Deleted" + id);
 
     await axios.delete(
-      `https://6496d62183d4c69925a32706.mockapi.io/Example/employees/${id}`
+      delete_URL
     );
 
     dispatch({
-      type: "REMOVE_EMPLOYEE_SUCCESS",
+      type: "REMOVE_CAFE_SUCCESS",
       payload: id,
     });
   } catch (error) {
     dispatch({
-      type: "REMOVE_EMPLOYEE_FAILURE",
+      type: "REMOVE_CAFE_FAILURE",
       payload: error.message,
     });
   }
 };
 
-export const addEmployee = async (dispatch, employee) => {
+export const addCafe = async (dispatch, cafe) => {
+  const add_URL = api_url + 'addCafeDetails';
   try {
     const response = await axios.post(
-      "https://6496d62183d4c69925a32706.mockapi.io/Example/employees",
-      employee
+      add_URL,
+      cafe
     );
-    const newEmployee = response.data;
+    const newCafe = cafe;
 
     dispatch({
-      type: "ADD_EMPLOYEE_SUCCESS",
-      payload: newEmployee,
+      type: "ADD_CAFE_SUCCESS",
+      payload: cafe,
     });
   } catch (error) {
     dispatch({
-      type: "ADD_EMPLOYEE_FAILURE",
+      type: "ADD_CAFE_FAILURE",
       payload: error.message,
     });
   }
 };
 
-export const editEmployee = async (dispatch, employee) => {
-  console.log(employee);
+export const editCafe = async (dispatch, cafe) => {
+  const edit_URL = api_url + 'updateCafeDetails';
   try {
     await axios.put(
-      `https://6496d62183d4c69925a32706.mockapi.io/Example/employees/${employee.id}`,
-      employee
+      edit_URL,
+      cafe
     );
 
     dispatch({
-      type: "EDIT_EMPLOYEE_SUCCESS",
+      type: "EDIT_CAFE_SUCCESS",
       payload: employee,
     });
   } catch (error) {
     dispatch({
-      type: "EDIT_EMPLOYEE_FAILURE",
+      type: "EDIT_CAFE_FAILURE",
       payload: error.message,
     });
   }
