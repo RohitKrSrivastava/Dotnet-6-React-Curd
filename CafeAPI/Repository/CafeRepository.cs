@@ -33,10 +33,16 @@ namespace CafeAPI.Repository
             try
             {
                 var findEntity = _dbContext.CafeData.Find(id);
+                var findRelatedEmployee = _dbContext.EmployeesData.Where(e => e.CafeId == id).ToList();
+
 
                 if (findEntity != null)
                 {
                     _dbContext.Remove(findEntity);
+
+                    if (findRelatedEmployee?.Count > 0) {
+                            _dbContext.RemoveRange(findRelatedEmployee);
+                    }
                     _dbContext.SaveChanges();
                     result = true;
                 }
@@ -79,6 +85,20 @@ namespace CafeAPI.Repository
                 throw;
             }
             
+        }
+
+        public string GetCafeById(string id)
+        {
+            try
+            {
+                var data = _dbContext.CafeData.Where(x=> x.Id == id).Select(s=> s.Name).FirstOrDefault();
+                return data;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
         public bool UpdateCafe(CafeData cafeData)

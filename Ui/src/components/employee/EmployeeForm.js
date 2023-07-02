@@ -26,6 +26,8 @@ function EmployeeForm({ initialValues, action }) {
   const [cafeList, setCafeList] = useState([]);
   const { addEmployee, editEmployee } = useContext(GlobalContext);
   const history = useHistory();
+  const [emailError, setEmailError] = useState("");
+  const [phoneNumberError, setPhoneNumberError] = useState("");
 
   useEffect(() => {
     setEmployee(initialValues);
@@ -34,9 +36,7 @@ function EmployeeForm({ initialValues, action }) {
 
   const getAssignedCafe = async () => {
     try {
-      const response = await axios.get(
-        `${apiUrl}/Cafe/allCafeList`
-      );
+      const response = await axios.get(`${apiUrl}/Cafe/allCafeList`);
       const cafes = response.data.map((cafe) => (
         <MenuItem key={cafe.id} value={cafe.id}>
           {cafe.name}
@@ -56,8 +56,28 @@ function EmployeeForm({ initialValues, action }) {
     }));
   };
 
+  const validateEmail = () => {
+    const isValidEmail = /\S+@\S+\.\S+/.test(employee.emailAddress);
+    setEmailError(isValidEmail ? "" : "Invalid email address");
+  };
+
+  const validatePhoneNumber = () => {
+    const isValidPhoneNumber = /^[89]\d{7}$/.test(employee.phoneNumber);
+    setPhoneNumberError(
+      isValidPhoneNumber ? "" : "Phone number must start with 8 or 9 and have 8 digits"
+    );
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    validateEmail();
+    validatePhoneNumber();
+
+    if (emailError || phoneNumberError) {
+      return;
+    }
+
     if (action === "Edit") {
       editEmployee(employee);
     } else {
@@ -89,17 +109,23 @@ function EmployeeForm({ initialValues, action }) {
             type="email"
             value={employee.emailAddress}
             onChange={handleChange}
+            onBlur={validateEmail}
           />
+          {emailError && <FormHelperText error>{emailError}</FormHelperText>}
         </FormControl>
         <FormControl margin="normal" required fullWidth>
           <InputLabel htmlFor="phoneNumber">Phone Number</InputLabel>
           <Input
             id="phoneNumber"
             name="phoneNumber"
-            type="tel"
+            type="number"
             value={employee.phoneNumber}
             onChange={handleChange}
+            onBlur={validatePhoneNumber}
           />
+          {phoneNumberError && (
+            <FormHelperText error>{phoneNumberError}</FormHelperText>
+          )}
         </FormControl>
         <FormGroup>
           {/* <FormControl margin="normal" required fullWidth>

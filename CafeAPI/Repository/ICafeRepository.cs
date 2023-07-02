@@ -7,6 +7,7 @@ namespace CafeAPI.Repository
         public List<CafeData> GetAllCafe();
         public string AddCafe(CafeData addCafe);
         public CafeData GetCafeByName(string name);
+        public string GetCafeById(string id);
         public bool UpdateCafe(CafeData cafeData);
         public bool DeleteCafe(string id);
     }

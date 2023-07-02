@@ -1,4 +1,3 @@
-import { CastForEducationTwoTone } from "@mui/icons-material";
 import axios from "axios";
 
 const api_url = process.env.REACT_APP_END_POINT + "/Cafe/";
@@ -20,9 +19,7 @@ export const cafeReducer = (state, action) => {
     case "REMOVE_CAFE_SUCCESS":
       return {
         ...state,
-        cafes: state.cafes.filter(
-          (cafes) => cafe.id !== action.payload
-        ),
+        cafes: state.cafes.filter((cafe) => cafe.id !== action.payload),
         error: null,
       };
     case "REMOVE_CAFE_FAILURE":
@@ -46,9 +43,9 @@ export const cafeReducer = (state, action) => {
 
       const updatedCafes = state.cafes.map((cafe) => {
         if (cafe.id === updatedCafe.id) {
-          return updatedEmployee;
+          return updatedCafe;
         }
-        return employee;
+        return cafe;
       });
 
       return {
@@ -70,9 +67,7 @@ export const fetchCafes = async (dispatch) => {
   const get_URL = api_url + 'allCafeList';
 
   try {
-    const response = await axios.get(
-      get_URL
-    );
+    const response = await axios.get(get_URL);
     const cafesData = response.data;
 
     dispatch({
@@ -87,15 +82,13 @@ export const fetchCafes = async (dispatch) => {
   }
 };
 
-export const removeCafes = async (dispatch, id) => {
+export const removeCafe = async (dispatch, id) => {
   const delete_URL = api_url + `deleteCafe/${id}`;
 
   try {
-    console.log("Record Deleted" + id);
+    console.log("Record Deleted: " + id);
 
-    await axios.delete(
-      delete_URL
-    );
+    await axios.delete(delete_URL);
 
     dispatch({
       type: "REMOVE_CAFE_SUCCESS",
@@ -110,14 +103,11 @@ export const removeCafes = async (dispatch, id) => {
 };
 
 export const addCafe = async (dispatch, cafe) => {
+  cafe.employees = [];
   const add_URL = api_url + 'addCafeDetails';
   try {
-    const response = await axios.post(
-      add_URL,
-      cafe
-    );
-    const newCafe = cafe;
-
+    const response = await axios.post(add_URL, cafe);
+    cafe.id = response.data;
     dispatch({
       type: "ADD_CAFE_SUCCESS",
       payload: cafe,
@@ -131,16 +121,14 @@ export const addCafe = async (dispatch, cafe) => {
 };
 
 export const editCafe = async (dispatch, cafe) => {
+  cafe.employees = [];
   const edit_URL = api_url + 'updateCafeDetails';
   try {
-    await axios.put(
-      edit_URL,
-      cafe
-    );
+    await axios.put(edit_URL, cafe);
 
     dispatch({
       type: "EDIT_CAFE_SUCCESS",
-      payload: employee,
+      payload: cafe,
     });
   } catch (error) {
     dispatch({

@@ -7,17 +7,27 @@ import {
   editEmployee,
 } from "./EmployeeReducer";
 
+import {
+  cafeReducer,
+  fetchCafes,
+  removeCafe,
+  addCafe,
+  editCafe,
+} from "./CafeReducer";
+
 const initialState = {
   employees: [],
-  cafe: [],
+  cafes: [],
 };
 
 export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [cafeState, cafeDispatch] = useReducer(cafeReducer, initialState);
 
   useEffect(() => {
     fetchEmployees(dispatch);
+    fetchCafes(cafeDispatch);
   }, []);
 
   const handleRemoveEmployee = (employee) => {
@@ -32,6 +42,18 @@ export const GlobalProvider = ({ children }) => {
     editEmployee(dispatch, employee);
   };
 
+  const handleRemoveCafe = (cafe) => {
+    removeCafe(cafeDispatch, cafe);
+  };
+
+  const handleAddCafe = (cafe) => {
+    addCafe(cafeDispatch, cafe);
+  };
+
+  const handleEditCafe = (cafe) => {
+    editCafe(cafeDispatch, cafe);
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -39,6 +61,10 @@ export const GlobalProvider = ({ children }) => {
         removeEmployee: handleRemoveEmployee,
         addEmployee: handleAddEmployee,
         editEmployee: handleEditEmployee,
+        cafes: cafeState.cafes,
+        removeCafe: handleRemoveCafe,
+        addCafe : handleAddCafe,
+        editCafe: handleEditCafe,
       }}
     >
       {children}

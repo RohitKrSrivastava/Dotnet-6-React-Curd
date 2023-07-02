@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import CafeForm from "./CafeForm";
 import { GlobalContext } from "../../context/GlobalState";
 
-export default function EditEmployee() {
+export default function EditCafe() {
   const { id } = useParams();
-  const { employees } = useContext(GlobalContext);
-  const employee = employees.find((emp) => emp.id === id);
+  const { cafes } = useContext(GlobalContext);
+  const cafe = cafes.find((cafe) => cafe.id === id);
 
-  if (!employee) {
+  if (!cafe) {
     return <div>Cafe not found</div>;
   }
 
-  return <CafeForm initialValues={employee} action={"Edit"} />;
+  return <CafeForm initialValues={cafe} action={"Edit"} />;
 }

@@ -67,7 +67,7 @@ function CafeForm({ initialValues, action }) {
   return (
     <Box maxWidth={400} mx="auto" marginTop={4} marginBottom={4}>
       <Typography variant="h6" gutterBottom>
-        {action === "Edit" ? "Edit Employee" : "Add Employee"}
+        {action === "Edit" ? "Edit Cafe" : "Add Cafe"}
       </Typography>
       <form onSubmit={handleSubmit}>
         <FormControl margin="normal" required fullWidth>
@@ -82,8 +82,8 @@ function CafeForm({ initialValues, action }) {
         <FormControl margin="normal" required fullWidth>
           <InputLabel htmlFor="discrption">Discription</InputLabel>
           <Input
-            id="email"
-            name="discrption"
+            id="discription"
+            name="discription"
             value={cafe.discription}
             onChange={handleChange}
           />
@@ -91,28 +91,28 @@ function CafeForm({ initialValues, action }) {
         <FormControl margin="normal" required fullWidth>
           <InputLabel htmlFor="location">Location</InputLabel>
           <Input
-            id="phone"
+            id="location"
             name="location"
             value={cafe.location}
             onChange={handleChange}
           />
         </FormControl>
         <FormGroup>
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="daysWorked">Logo</InputLabel>
+          <FormControl margin="normal" fullWidth>
+            <InputLabel htmlFor="logo">Logo</InputLabel>
             <Input
-              id="daysWorked"
+              id="logo"
               name="logo"
               value={cafe.logo}
               onChange={handleChange}
             />
             <FormHelperText>
-              Number of days the employee has worked in the cafe.
+              Logo of the cafe.
             </FormHelperText>
           </FormControl>
         </FormGroup>
         <Button type="submit" variant="contained" color="primary">
-          {action === "Edit" ? "Save Changes" : "Add Employee"}
+          {action === "Edit" ? "Save Changes" : "Add Cafe"}
         </Button>
       </form>
     </Box>

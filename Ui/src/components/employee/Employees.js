@@ -101,7 +101,7 @@ function Employees(props) {
                     <TableCell>{employee.emailAddress}</TableCell>
                     <TableCell>{employee.phoneNumber}</TableCell>
                     {/* <TableCell>{employee.daysWorked}</TableCell> */}
-                    <TableCell>{employee.cafeId}</TableCell>
+                    <TableCell>{employee.cafeName}</TableCell>
                     <TableCell>
                       <Link
                         to={`/employees/${employee.id}`}

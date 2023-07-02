@@ -41,16 +41,14 @@ const styles = (theme) => ({
   },
 });
 
-const cafes = [];
-
 function Cafes(props) {
-  const { cafe, removeEmployee, editEmployee } = useContext(GlobalContext);
+  const { cafes, removeCafe, editCafe } = useContext(GlobalContext);
   const { classes } = props;
-  const [deleteEmployeeId, setDeleteEmployeeId] = useState(null);
+  const [deleteCafeId, setDeleteCafeId] = useState(null);
   const [openConfirmationDialog, setOpenConfirmationDialog] = useState(false);
 
   const handleDelete = (cafeId) => {
-    //setDeleteCafeId(cafeId);
+    setDeleteCafeId(cafeId);
     setOpenConfirmationDialog(true);
   };
 
@@ -59,7 +57,7 @@ function Cafes(props) {
   };
 
   const handleConfirmDelete = () => {
-    //removeCafe(deleteCafeId);
+    removeCafe(deleteCafeId);
     setOpenConfirmationDialog(false);
   };
 
@@ -96,7 +94,7 @@ function Cafes(props) {
                     <TableCell>{cafe.logo}</TableCell>
                     <TableCell>
                       <Link
-                        to={`/Cafe/${cafe.id}`}
+                        to={`/Cafes/${cafe.id}`}
                         className={classes.noDecoration}
                       >
                         <Button

@@ -52,6 +52,13 @@ namespace CafeAPI.Repository
             try 
             { 
                 var allEmployee = _dbContext.EmployeesData.ToList();
+                foreach (var employee in allEmployee) {
+                    var cafeEntity = _dbContext.CafeData.Find(employee.CafeId);
+                    if (cafeEntity != null) {
+                        employee.CafeName = cafeEntity?.Name;
+                    }
+                }
+
                 return allEmployee;
             }
             catch (Exception)

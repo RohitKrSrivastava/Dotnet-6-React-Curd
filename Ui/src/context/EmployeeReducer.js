@@ -106,7 +106,7 @@ export const removeEmployee = async (dispatch, empId) => {
 };
 
 export const addEmployee = async (dispatch, employee) => {
-  employee.cafeName = "";
+  
   try {
     const get_URL = apiUrl + 'addEmployeeDetails';
     const response = await axios.post(
@@ -129,7 +129,7 @@ export const addEmployee = async (dispatch, employee) => {
 };
 
 export const editEmployee = async (dispatch, employee) => {
-  employee.cafeName = "";
+
   const edit_URL = apiUrl + 'updateEmployeeDetails';
   try {
     await axios.put(
