@@ -21,7 +21,9 @@ namespace CafeAPI.Services
                 Name = addEmployee.Name,
                 EmailAddress = addEmployee.EmailAddress,
                 Gender = addEmployee.Gender,
-                PhoneNumber = addEmployee.PhoneNumber
+                PhoneNumber = addEmployee.PhoneNumber,
+                CafeId = addEmployee.CafeId,
+                CafeName = addEmployee.CafeName
             };
 
             return _employeeRepository.AddEmployee(newEmployee);

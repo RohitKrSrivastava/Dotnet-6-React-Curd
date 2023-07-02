@@ -76,7 +76,7 @@ namespace CafeAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("deleteCafe")]
+        [Route("deleteCafe/{id}")]
         public IActionResult DeleteCafe(CafeData cafeData) {
             try
             {
