@@ -8,4 +8,4 @@ Update-Database
 
 -----------------------
 
-run seed data sql script 
+run seed data sql script for db seed
